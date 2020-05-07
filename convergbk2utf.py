@@ -57,7 +57,8 @@ def explore(dir):
 	for root, dirs, files in os.walk(dir):
 		for file in files:
 			path = os.path.join(root, file)
-			convert(path)
+			if path[-2] == '.' and (path[-1] == 'c' or path[-1] == 'h'):
+				convert(path)
 
 def main():
 	if len(sys.argv) < 2:
